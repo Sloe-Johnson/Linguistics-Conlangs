@@ -1,0 +1,40 @@
+'''the order in which to check for categories will be the following:
+  - directly particle or interjection if len(word)<4 (pronouns are included)
+  - correlative
+  - noun
+  - verb
+  - adverb
+  
+def isCorrelative(word):
+    basis = ['ki', 'ti', 'ĉi', 'i', 'neni']
+    suffix = ['a', 'al', 'am', 'e', 'el', 'es', 'o', 'om', 'u']
+    for prefix in basis:
+        if word[:3].lower() in prefix:
+            for ending in suffix:
+                if word[-2:-1].lower() in ending:
+                    return True
+                return False
+        return False
+    return False
+    
+    
+def isNoun(word):
+    if word[-1].lower() not in ['o', 'j', 'n']:
+        return False
+    elif word[-1].lower() == 'n':
+        return word[-3:-2]=='oj' or word[-2]=='o'
+    return False
+        
+def isVerb(word):
+    if word[-1].lower() not in ['s', 'u', 'i']:
+        if word[-3:-1].lower() in ['nta', 'ata', 'ita', 'ota']:
+            return True
+        return False
+    elif word[-1].lower() == 's' and word[-2].lower() in ['a', 'i', 'o', 'u']:
+        return True
+    elif word[-1].lower()=='i' or word[-1].lower()=='u' and len(word) > 3:
+        return True
+    return False
+    
+        
+    
