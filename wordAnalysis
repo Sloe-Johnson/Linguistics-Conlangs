@@ -2,8 +2,10 @@
   - directly particle or interjection if len(word)<4 (pronouns are included)
   - correlative
   - noun
+  - adjective
   - verb
   - adverb
+  '''
   
 def isCorrelative(word):
     basis = ['ki', 'ti', 'ĉi', 'i', 'neni']
@@ -17,13 +19,23 @@ def isCorrelative(word):
         return False
     return False
     
-    
 def isNoun(word):
     if word[-1].lower() not in ['o', 'j', 'n']:
         return False
     elif word[-1].lower() == 'n':
         return word[-3:-2]=='oj' or word[-2]=='o'
+    elif word[-1].lower()=='o':
+        return True
     return False
+    
+def isAdjective(word):
+    if word[-1].lower() not in ['a', ''j', 'n']:
+        return False
+    elif word[-1].lower()=='n':
+        return word[-3:-2]=='aj' or word[-2]=='a'
+    elif word[-1].lower()=='a':
+        return True
+    return True
         
 def isVerb(word):
     if word[-1].lower() not in ['s', 'u', 'i']:
@@ -36,5 +48,10 @@ def isVerb(word):
         return True
     return False
     
+def isParticipe(word):
+    return isAdjective(word) and isVerb(word)
+
+def isAdverb(word):
+    return len(word)>3 and word[-1].lower()=='e'
         
     
