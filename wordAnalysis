@@ -54,4 +54,3 @@ def isParticipe(word):
 def isAdverb(word):
     return len(word)>3 and word[-1].lower()=='e'
         
-    
