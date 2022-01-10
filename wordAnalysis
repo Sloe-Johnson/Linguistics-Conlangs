@@ -54,3 +54,18 @@ def isParticipe(word):
 def isAdverb(word):
     return len(word)>3 and word[-1].lower()=='e'
         
+def Dictionary(filename):
+
+    isURL1 = "http://"
+    isURL2 = "https://"
+    if filename.startswith(isURL1) or filename.startswith(isURL2) :
+        from urllib.request import urlopen
+        webPage = urlopen(filename)
+        text = str(webPage.read(), "utf-8")
+        webPage.close()
+    else:
+        f = open(filename, "r")
+        text = f.read()
+        f.close()
+    return text
+        
