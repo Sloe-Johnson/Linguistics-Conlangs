@@ -55,7 +55,6 @@ def isAdverb(word):
     return len(word)>3 and word[-1].lower()=='e'
         
 def Dictionary(filename):
-
     isURL1 = "http://"
     isURL2 = "https://"
     if filename.startswith(isURL1) or filename.startswith(isURL2) :
