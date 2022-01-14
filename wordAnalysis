@@ -54,7 +54,7 @@ def isParticipe(word):
 def isAdverb(word):
     return len(word)>3 and word[-1].lower()=='e'
         
-def Dictionary(filename):
+'''def Dictionary(filename):
     isURL1 = "http://"
     isURL2 = "https://"
     if filename.startswith(isURL1) or filename.startswith(isURL2) :
@@ -66,5 +66,9 @@ def Dictionary(filename):
         f = open(filename, "r")
         text = f.read()
         f.close()
-    return text
+    return text'''
+    
+def Dictionary(text):
+  words = text.split(' ').split('\n')
+  
         
