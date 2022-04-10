@@ -11,9 +11,8 @@ def isCorrelative(word):
     basis = ['ki', 'ti', 'ĉi', 'i', 'neni']
     suffix = ['a', 'al', 'am', 'e', 'el', 'es', 'o', 'om', 'u']
     for prefix in basis:
-        if word[:3].lower() in prefix:
-            for ending in suffix:
-                if word[-2:-1].lower() in ending:
+        for ending in suffix:
+          if prefix+ending in word[-6:-1]:
                     return True
                 return False
         return False
@@ -53,7 +52,16 @@ def isParticipe(word):
 
 def isAdverb(word):
     return len(word)>3 and word[-1].lower()=='e'
-        
+
+def typeWord(word):
+    if isCorrelative(word): return 'correlative'
+    elif isNoun(word): return 'noun'
+    elif isParticipe(word): return 'participe'                            
+    elif isVerb(word): return 'verb'
+    elif isAdverb(word): return 'adverb'
+    elif isAdjective(word): return 'adjective'                            
+    else: return 'particle'
+                                
 '''def Dictionary(filename):
     isURL1 = "http://"
     isURL2 = "https://"
