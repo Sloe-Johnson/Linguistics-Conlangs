@@ -69,6 +69,9 @@ def isAdverb(word):
     return text'''
     
 def Dictionary(text):
-  words = text.split(' ').split('\n')
+  words = text.split(' ').split('\n')                                
+  pass   
+                                
+                                
   
         
