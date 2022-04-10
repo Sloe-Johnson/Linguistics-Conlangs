@@ -10,7 +10,7 @@ alphabet_special_upper = alphabet_special_lower.upper()
 alphabet_special = alphabet_special_lower+alphabet_special_upper
 
 def computerSpelling(world):
-    # computer spelling for EO repleces the special characters with diptongs
+    # computer spelling for EO replaces the special characters with diptongs
     # composed by a base letter (c, g, h, j, s, u) and x 
     word_CS = ""
     for letter in word:
